@@ -1,3 +1,4 @@
+using AndyPike.ORMBattle.ARBaseClass.Models;
 using Castle.MonoRail.ActiveRecordSupport;
 using Castle.MonoRail.Framework;
 
@@ -8,7 +9,7 @@ namespace AndyPike.ORMBattle.ARBaseClass.Controllers
     {
         public void Index()
         {
-            
+            PropertyBag["tickets"] = Ticket.AllTicketsOrderedByDate();
         }
     }
 }

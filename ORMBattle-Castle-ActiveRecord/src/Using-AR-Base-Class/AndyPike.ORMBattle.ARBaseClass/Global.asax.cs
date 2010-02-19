@@ -1,5 +1,7 @@
-﻿using System.Reflection;
+﻿using System;
+using System.Reflection;
 using System.Web;
+using AndyPike.ORMBattle.ARBaseClass.Models;
 using Castle.ActiveRecord;
 using Castle.Facilities.AutomaticTransactionManagement;
 using Castle.Facilities.Logging;
@@ -25,8 +27,7 @@ namespace AndyPike.ORMBattle.ARBaseClass
 
             RegisterRoutes(RoutingModuleEx.Engine);
 
-            //NHibernateProfiler.Initialize();
-            ActiveRecordStarter.CreateSchema();
+            InitializeActiveRecord();
         }
 
         public void Application_OnEnd()
@@ -49,7 +50,7 @@ namespace AndyPike.ORMBattle.ARBaseClass
 
         public void RegisterComponents()
         {
-
+            //Register your own components with the container here
         }
 
         public void RegisterControllers()
@@ -64,15 +65,48 @@ namespace AndyPike.ORMBattle.ARBaseClass
 
         public void RegisterRoutes(IRoutingRuleContainer rules)
         {
-            rules.Add(new PatternRoute("Root", "/")
-                          .DefaultForArea().IsEmpty
-                          .DefaultForController().Is("Home")
-                          .DefaultForAction().Is("Index"));
-
             rules.Add(new PatternRoute("[controller]/[action]/[id]")
                           .DefaultForArea().IsEmpty
                           .DefaultForController().Is("Home")
                           .DefaultForAction().Is("Index"));
+        }
+
+        private void InitializeActiveRecord()
+        {
+            //NHibernateProfiler.Initialize();
+            ActiveRecordStarter.CreateSchema();
+
+            //Add some data for the demo
+            using(new SessionScope())
+            {
+                var andy = new User{ Name = "Andy Pike", Email = "andy@andypike.com;" };
+                andy.Save();
+
+                var amber = new User {Name = "Amber Pike", Email = "me@amberpike.co.uk"};
+                amber.Save();
+
+                var ie6Bug = new Ticket
+                                 {
+                                     Type = TicketType.Bug, 
+                                     Summary = "The boxes do not line up in IE6 ;o)", 
+                                     Body = "If you go to any page on the site it look terrible in IE6.", 
+                                     AssignedTo = amber,
+                                     CreatedBy = andy, 
+                                     CreatedAt = DateTime.Now
+                                 };
+                ie6Bug.Save();
+
+                var addProfilePictures = new Ticket
+                                            {
+                                                Type = TicketType.FeatureRequest,
+                                                Summary = "Show a user's photo when they login",
+                                                Body = "Show a user's Gravatar based on their email. See documentation on gravatar.com.",
+                                                AssignedTo = andy,
+                                                CreatedBy = andy,
+                                                CreatedAt = DateTime.Now
+                                            };
+                addProfilePictures.Save();
+            }
         }
     }
 }
