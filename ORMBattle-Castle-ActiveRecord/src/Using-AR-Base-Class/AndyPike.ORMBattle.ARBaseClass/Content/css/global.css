@@ -1,4 +1,14 @@
-﻿body 
-{
-    
+﻿body {
+    background: #fff;
+    font-family: Tahoma, Arial;
+}
+
+table {
+    border-collapse:collapse;
+    text-align: left;
+}
+
+td, th {
+    border: solid 1px #666;
+    padding: 5px;
 }

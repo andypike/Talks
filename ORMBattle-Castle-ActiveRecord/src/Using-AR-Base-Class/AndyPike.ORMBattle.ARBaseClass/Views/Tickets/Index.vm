@@ -1,0 +1,20 @@
+﻿#capturefor(title)
+	Tickets
+#end
+
+<table>
+    <tr>
+        <th>Type</th>
+        <th>Summary</th>
+        <th>Assigned To</th>
+        <th>Created By</th>
+    </tr>
+#foreach($ticket in $tickets)
+	<tr>
+	    <td>$ticket.Type</td>
+		<td>$ticket.Summary</td>
+		<td>$ticket.AssignedTo.Name</td>
+		<td>$ticket.CreatedBy.Name</td>
+	</tr>
+#end
+</table>

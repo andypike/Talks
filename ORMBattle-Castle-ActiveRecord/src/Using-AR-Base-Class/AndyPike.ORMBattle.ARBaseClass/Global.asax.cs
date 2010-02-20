@@ -67,7 +67,7 @@ namespace AndyPike.ORMBattle.ARBaseClass
         {
             rules.Add(new PatternRoute("[controller]/[action]/[id]")
                           .DefaultForArea().IsEmpty
-                          .DefaultForController().Is("Home")
+                          .DefaultForController().Is("Tickets")
                           .DefaultForAction().Is("Index"));
         }
 
