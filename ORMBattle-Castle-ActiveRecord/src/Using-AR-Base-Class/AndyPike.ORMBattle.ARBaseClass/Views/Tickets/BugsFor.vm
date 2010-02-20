@@ -1,0 +1,9 @@
+﻿#capturefor(title)
+	Bugs For $user.Name
+#end
+
+<ul>
+#foreach($bug in $bugs)
+	<li>$bug.Summary</li>
+#end
+</ul>

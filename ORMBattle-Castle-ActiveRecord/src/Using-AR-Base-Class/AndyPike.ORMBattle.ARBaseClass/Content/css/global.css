@@ -1,14 +1,69 @@
 ﻿body {
-    background: #fff;
+    background: #ccc;
     font-family: Tahoma, Arial;
+}
+
+h1, h2 {
+    margin: 10px 0;
+    color: #333;
 }
 
 table {
     border-collapse:collapse;
     text-align: left;
+    width: 100%;
+}
+
+th {
+    background: #666;
+    color: #fff;
 }
 
 td, th {
-    border: solid 1px #666;
-    padding: 5px;
+    border: solid 1px #ddd;
+    padding: 7px;
+    font-size: 0.8em;
+}
+
+#page {
+    width: 800px;
+    margin: auto;
+    background: #fff;
+    padding: 10px;
+}
+
+.errors {
+    color: #ff0000;
+    border: solid 1px #ff0000;
+    background: #FFD3DB;
+}
+
+.success {
+    color: #051;
+    border: solid 1px #051;
+    background: #B3EFBF;
+}
+
+.errors, .success {
+    padding: 10px;
+    font-weight: bold;
+    
+    -moz-border-radius-bottomleft: 5px;
+    -moz-border-radius-bottomright: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+}
+
+label {
+    display: block;
+    width: 100px;
+    margin-bottom: 5px;
+}
+
+input[type=text], textarea {
+    width: 400px;    
+}
+
+em {
+    color: Red;
 }

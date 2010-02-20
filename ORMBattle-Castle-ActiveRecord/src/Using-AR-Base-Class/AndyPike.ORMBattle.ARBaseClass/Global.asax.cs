@@ -65,7 +65,7 @@ namespace AndyPike.ORMBattle.ARBaseClass
 
         public void RegisterRoutes(IRoutingRuleContainer rules)
         {
-            rules.Add(new PatternRoute("[controller]/[action]/[id]")
+            rules.Add(new PatternRoute("standard", "[controller]/[action]/[id]")
                           .DefaultForArea().IsEmpty
                           .DefaultForController().Is("Tickets")
                           .DefaultForAction().Is("Index"));
@@ -79,11 +79,17 @@ namespace AndyPike.ORMBattle.ARBaseClass
             //Add some data for the demo
             using(new SessionScope())
             {
-                var andy = new User{ Name = "Andy Pike", Email = "andy@andypike.com;" };
+                var andy = new User{ Name = "Andy Pike" };
                 andy.Save();
 
-                var amber = new User {Name = "Amber Pike", Email = "me@amberpike.co.uk"};
+                var amber = new User{ Name = "Amber Pike" };
                 amber.Save();
+
+                var demo = new Project{ Name = "Demo Project" };
+                demo.Save();
+
+                var secret = new Project { Name = "My top secret project" };
+                secret.Save();
 
                 var ie6Bug = new Ticket
                                  {
@@ -91,8 +97,8 @@ namespace AndyPike.ORMBattle.ARBaseClass
                                      Summary = "The boxes do not line up in IE6 ;o)", 
                                      Body = "If you go to any page on the site it look terrible in IE6.", 
                                      AssignedTo = amber,
-                                     CreatedBy = andy, 
-                                     CreatedAt = DateTime.Now
+                                     CreatedAt = DateTime.Now,
+                                     Project = demo
                                  };
                 ie6Bug.Save();
 
@@ -102,10 +108,21 @@ namespace AndyPike.ORMBattle.ARBaseClass
                                                 Summary = "Show a user's photo when they login",
                                                 Body = "Show a user's Gravatar based on their email. See documentation on gravatar.com.",
                                                 AssignedTo = andy,
-                                                CreatedBy = andy,
-                                                CreatedAt = DateTime.Now
+                                                CreatedAt = DateTime.Now,
+                                                Project = demo
                                             };
                 addProfilePictures.Save();
+
+                var filters = new Ticket
+                                {
+                                    Type = TicketType.Bug,
+                                    Summary = "User filters not working",
+                                    Body = "When filtering the list of users, none of the options seem to change the list.",
+                                    AssignedTo = andy,
+                                    CreatedAt = DateTime.Now,
+                                    Project = secret
+                                };
+                filters.Save();
             }
         }
     }

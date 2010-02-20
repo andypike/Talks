@@ -21,11 +21,18 @@
 			<div id="content">
 				<h1>$title.Trim()</h1>
 
-				#if($error)
-					<p class="flash-error">$error</p>
-				#end
+				#if($errors)
+                    <div class="errors">
+                        <h3>The following fields were not valid:</h3>
+                        <ul>
+                            #foreach($failedProperty in $errors.FailedProperties)
+                                <li>$failedProperty.Name</li>
+                            #end
+                        </ul>
+                    </div>
+                #end
 				#if($success)
-					<p class="flash-success">$success</p>
+					<p class="success">$success</p>
 				#end
 
 				$childContent

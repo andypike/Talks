@@ -2,19 +2,26 @@
 	Tickets
 #end
 
-<table>
-    <tr>
-        <th>Type</th>
-        <th>Summary</th>
-        <th>Assigned To</th>
-        <th>Created By</th>
-    </tr>
-#foreach($ticket in $tickets)
-	<tr>
-	    <td>$ticket.Type</td>
-		<td>$ticket.Summary</td>
-		<td>$ticket.AssignedTo.Name</td>
-		<td>$ticket.CreatedBy.Name</td>
-	</tr>
+<div>$url.link("Create Ticket", "%{action='New'}")</div>
+
+#foreach($project in $projects)
+
+    <h2>$project.Name</h2>
+    <table>
+        <tr>
+            <th>Type</th>
+            <th>Summary</th>
+            <th>Assigned To</th>
+            <th></th>
+        </tr>
+    #foreach($ticket in $project.Tickets)
+	    <tr>
+	        <td>$ticket.Type</td>
+		    <td>$ticket.Summary</td>
+		    <td>$ticket.AssignedTo.Name (<a href="/Tickets/BugsFor?user=$ticket.AssignedTo.id">Bugs For</a>)</td>
+		    <td><a href="/Tickets/Edit?ticket=$ticket.id">Edit</a></td>
+	    </tr>
+    #end
+    </table>
+
 #end
-</table>

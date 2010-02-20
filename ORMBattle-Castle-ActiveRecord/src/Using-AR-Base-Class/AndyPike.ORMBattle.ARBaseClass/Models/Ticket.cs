@@ -1,24 +1,22 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using Castle.ActiveRecord;
-using Castle.ActiveRecord.Linq;
 using NHibernate.Criterion;
+using Castle.Components.Validator;
 
 namespace AndyPike.ORMBattle.ARBaseClass.Models
 {
     [ActiveRecord]
-    public class Ticket : ActiveRecordLinqBase<Ticket>
+    public class Ticket : ActiveRecordValidationBase<Ticket>
     {
         [PrimaryKey(PrimaryKeyType.GuidComb)]
         public Guid Id { get; set; }
 
-        [Version]
-        public int Version { get; set; }
-
+        [ValidateNonEmpty]
         [Property(NotNull = true)]
         public string Summary { get; set; }
 
+        [ValidateNonEmpty]
         [Property(NotNull = true, SqlType = "nvarchar(max)")]
         public string Body { get; set; }
 
@@ -26,7 +24,7 @@ namespace AndyPike.ORMBattle.ARBaseClass.Models
         public TicketType Type { get; set; }
 
         [BelongsTo(NotNull = true)]
-        public User CreatedBy { get; set; }
+        public Project Project { get; set; }
 
         [Property]
         public DateTime CreatedAt { get; set; }
@@ -34,14 +32,13 @@ namespace AndyPike.ORMBattle.ARBaseClass.Models
         [BelongsTo(NotNull = true)]
         public User AssignedTo { get; set; }
 
-        public static IList<Ticket> AllTicketsOrderedByDate()
-        {
-            return FindAll(new Order("CreatedAt", false));
-        }
-
         public static IList<Ticket> FindBugsFor(User user)
         {
-            return Queryable.Where(t => t.AssignedTo == user && t.Type == TicketType.Bug).ToList();
+            var criteria = DetachedCriteria.For<Ticket>()
+                            .Add(Restrictions.Eq("AssignedTo", user))
+                            .Add(Restrictions.Eq("Type", TicketType.Bug));
+
+            return FindAll(criteria);
         }
     }
 }
