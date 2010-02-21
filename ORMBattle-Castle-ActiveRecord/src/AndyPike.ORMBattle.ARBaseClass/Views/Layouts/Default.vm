@@ -25,8 +25,8 @@
                     <div class="errors">
                         <p>The following fields were not valid:</p>
                         <ul>
-                            #foreach($failedProperty in $errors.FailedProperties)
-                                <li>$failedProperty.Name</li>
+                            #foreach($error in $errors)
+                                <li>$error</li>
                             #end
                         </ul>
                     </div>

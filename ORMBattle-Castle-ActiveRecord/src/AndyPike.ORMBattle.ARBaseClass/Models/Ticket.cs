@@ -12,11 +12,11 @@ namespace AndyPike.ORMBattle.ARBaseClass.Models
         [PrimaryKey(PrimaryKeyType.GuidComb)]
         public Guid Id { get; set; }
 
-        [ValidateNonEmpty]
+        [ValidateNonEmpty("Ticket summary is required")]
         [Property(NotNull = true)]
         public string Summary { get; set; }
 
-        [ValidateNonEmpty]
+        [ValidateNonEmpty("Ticket body is required")]
         [Property(NotNull = true, SqlType = "nvarchar(max)")]
         public string Body { get; set; }
 

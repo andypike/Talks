@@ -1,6 +1,5 @@
 using System;
 using AndyPike.ORMBattle.ARBaseClass.Models;
-using Castle.ActiveRecord;
 using Castle.MonoRail.ActiveRecordSupport;
 using Castle.MonoRail.Framework;
 
@@ -28,16 +27,16 @@ namespace AndyPike.ORMBattle.ARBaseClass.Controllers
         [AccessibleThrough(Verb.Post)]
         public void Update([ARDataBind("ticket", AutoLoadBehavior.Always)]Ticket ticket)
         {
-            try
+            if(ticket.IsValid())
             {
-                ticket.SaveAndFlush();
+                ticket.Save();
 
                 Flash["success"] = "Successfully updated ticket";
                 RedirectToAction("Index");
             }
-            catch (ActiveRecordValidationException ex)
+            else
             {
-                PropertyBag["errors"] = ex;
+                PropertyBag["errors"] = ticket.ValidationErrorMessages;
                 PopulatePropertyBagForTicket(ticket);
 
                 RenderView("Edit");
@@ -52,18 +51,20 @@ namespace AndyPike.ORMBattle.ARBaseClass.Controllers
         [AccessibleThrough(Verb.Post)]
         public void Create([DataBind("ticket")]Ticket ticket)
         {
-            try
+            if(ticket.IsValid())
             {
                 ticket.CreatedAt = DateTime.Now;
-                ticket.CreateAndFlush();
+                ticket.Save();
 
                 Flash["success"] = "Successfully created ticket";
                 RedirectToAction("Index");
             }
-            catch (ActiveRecordValidationException ex)
+            else
             {
-                Flash["errors"] = ex;
-                RedirectToAction("New");
+                PropertyBag["errors"] = ticket.ValidationErrorMessages;
+                PopulatePropertyBagForTicket(ticket);
+
+                RenderView("Edit");
             }
         }
 
