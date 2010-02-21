@@ -1,0 +1,7 @@
+﻿#capturefor(title)
+	Create Ticket
+#end
+
+<form action="/Tickets/Create" method="post">	
+	#parse("Tickets/_Form.vm")
+</form>

@@ -1,3 +1,4 @@
+using System;
 using AndyPike.ORMBattle.ARBaseClass.Models;
 using Castle.ActiveRecord;
 using Castle.MonoRail.ActiveRecordSupport;
@@ -21,7 +22,7 @@ namespace AndyPike.ORMBattle.ARBaseClass.Controllers
 
         public void Edit([ARFetch]Ticket ticket)
         {
-            PropertyBag["ticket"] = ticket;
+            PopulatePropertyBagForTicket(ticket);
         }
 
         [AccessibleThrough(Verb.Post)]
@@ -37,14 +38,41 @@ namespace AndyPike.ORMBattle.ARBaseClass.Controllers
             catch (ActiveRecordValidationException ex)
             {
                 PropertyBag["errors"] = ex;
-                PropertyBag["ticket"] = ticket;
+                PopulatePropertyBagForTicket(ticket);
+
                 RenderView("Edit");
             }
         }
 
         public void New()
         {
-            //TODO: This is left for the audience to complete ;o)
+            PopulatePropertyBagForTicket(new Ticket());
+        }
+
+        [AccessibleThrough(Verb.Post)]
+        public void Create([DataBind("ticket")]Ticket ticket)
+        {
+            try
+            {
+                ticket.CreatedAt = DateTime.Now;
+                ticket.CreateAndFlush();
+
+                Flash["success"] = "Successfully created ticket";
+                RedirectToAction("Index");
+            }
+            catch (ActiveRecordValidationException ex)
+            {
+                Flash["errors"] = ex;
+                RedirectToAction("New");
+            }
+        }
+
+        private void PopulatePropertyBagForTicket(Ticket ticket)
+        {
+            PropertyBag["ticket"] = ticket;
+            PropertyBag["projects"] = Project.FindAllOrderedByName();
+            PropertyBag["users"] = User.FindAll();
+            PropertyBag["types"] = Enum.GetNames(typeof(TicketType));
         }
     }
 }

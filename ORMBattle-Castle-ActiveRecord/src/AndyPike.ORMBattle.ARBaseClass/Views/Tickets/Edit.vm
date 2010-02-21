@@ -1,0 +1,9 @@
+﻿#capturefor(title)
+	Edit Ticket
+#end
+
+<form action="/Tickets/Update" method="post">
+	$form.hiddenfield("ticket.id")
+	
+	#parse("Tickets/_Form.vm")
+</form>

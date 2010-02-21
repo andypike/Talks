@@ -9,6 +9,7 @@
     <h2>$project.Name</h2>
     <table>
         <tr>
+            <th>Created</th>
             <th>Type</th>
             <th>Summary</th>
             <th>Assigned To</th>
@@ -16,6 +17,7 @@
         </tr>
     #foreach($ticket in $project.Tickets)
 	    <tr>
+	        <td>$ticket.CreatedAt.ToShortDateString()</td>
 	        <td>$ticket.Type</td>
 		    <td>$ticket.Summary</td>
 		    <td>$ticket.AssignedTo.Name (<a href="/Tickets/BugsFor?user=$ticket.AssignedTo.id">Bugs For</a>)</td>

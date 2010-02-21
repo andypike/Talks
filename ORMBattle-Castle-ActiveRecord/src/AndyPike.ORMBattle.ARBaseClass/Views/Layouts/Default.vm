@@ -23,7 +23,7 @@
 
 				#if($errors)
                     <div class="errors">
-                        <h3>The following fields were not valid:</h3>
+                        <p>The following fields were not valid:</p>
                         <ul>
                             #foreach($failedProperty in $errors.FailedProperties)
                                 <li>$failedProperty.Name</li>

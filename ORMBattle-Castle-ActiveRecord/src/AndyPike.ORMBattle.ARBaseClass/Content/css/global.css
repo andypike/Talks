@@ -47,6 +47,7 @@ td, th {
 .errors, .success {
     padding: 10px;
     font-weight: bold;
+    font-size: 0.8em;
     
     -moz-border-radius-bottomleft: 5px;
     -moz-border-radius-bottomright: 5px;

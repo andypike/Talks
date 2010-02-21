@@ -1,0 +1,29 @@
+﻿	<p>
+    <label>Summary</label>
+    $form.textfield("ticket.summary")
+    <em>*</em>
+</p>
+<p>
+    <label>Body</label>
+    $form.textarea("ticket.body")
+    <em>*</em>
+</p>
+<p>
+    <label>Project</label>
+    $form.select("ticket.project.id", $projects, "%{value='id', text='name'}")
+    <em>*</em>
+</p>
+<p>
+    <label>Assigned To</label>
+    $form.select("ticket.assignedTo.id", $users, "%{value='id', text='name'}")
+    <em>*</em>
+</p>
+<p>
+    <label>Type</label>
+    $form.select("ticket.type", $types)
+    <em>*</em>
+</p>
+<p>
+    $form.submit("Save")
+    $url.link("Cancel", "%{action='Index'}")
+</p>

@@ -85,6 +85,9 @@ namespace AndyPike.ORMBattle.ARBaseClass
                 var amber = new User{ Name = "Amber Pike" };
                 amber.Save();
 
+                var george = new User { Name = "George Good" };
+                george.Save();
+
                 var demo = new Project{ Name = "Demo Project" };
                 demo.Save();
 

@@ -50,6 +50,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\lib\Castle.Components.Common.TemplateEngine.NVelocityTemplateEngine.dll</HintPath>
     </Reference>
+    <Reference Include="Castle.Components.DictionaryAdapter, Version=1.0.3.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\lib\Castle.Components.DictionaryAdapter.dll</HintPath>
+    </Reference>
     <Reference Include="Castle.Components.Validator, Version=1.1.1.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\lib\Castle.Components.Validator.dll</HintPath>
@@ -185,6 +189,7 @@
     <None Include="Views\Tickets\Index.vm" />
     <None Include="Views\Layouts\Default.vm" />
     <None Include="Views\Tickets\New.vm" />
+    <None Include="Views\Tickets\_Form.vm" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v9.0\WebApplications\Microsoft.WebApplication.targets" />
