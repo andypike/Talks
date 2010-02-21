@@ -73,7 +73,6 @@ namespace AndyPike.ORMBattle.ARBaseClass
 
         private void InitializeActiveRecord()
         {
-            //NHibernateProfiler.Initialize();
             ActiveRecordStarter.CreateSchema();
 
             //Add some data for the demo
