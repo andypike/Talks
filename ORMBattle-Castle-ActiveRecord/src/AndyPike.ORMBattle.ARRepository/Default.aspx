@@ -3,7 +3,7 @@
 <script runat="server">
 protected override void OnLoad(EventArgs e)
 {
-    Response.Redirect("~/Tickets");
+    Response.Redirect("~/Blog");
     base.OnLoad(e);
 }
 </script>
@@ -14,6 +14,6 @@ protected override void OnLoad(EventArgs e)
         <title>Loading...</title>
     </head>
     <body>
-        <p>If you were not redirected, please <a href="/Tickets">click here</a>.</p>
+        <p>If you were not redirected, please <a href="/Blog">click here</a>.</p>
     </body>
 </html>

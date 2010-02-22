@@ -1,0 +1,11 @@
+﻿#capturefor(title)
+    Blog
+#end
+
+<p>Here are all the users in the database</p>
+
+<ul>
+    #foreach($user in $users)
+    <li><a href="/Blog/PostsFor?user=$user.Id">View posts created by $user.FullName</a></li>
+    #end
+</ul>
