@@ -33,11 +33,11 @@
   <ItemGroup>
     <Reference Include="Castle.ActiveRecord, Version=2.0.1000.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\AndyPike.ORMBattle.ARBaseClass\bin\Castle.ActiveRecord.dll</HintPath>
+      <HintPath>..\..\lib\Castle.ActiveRecord.dll</HintPath>
     </Reference>
     <Reference Include="Castle.MonoRail.Framework, Version=1.0.3.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\AndyPike.ORMBattle.ARBaseClass\bin\Castle.MonoRail.Framework.dll</HintPath>
+      <HintPath>..\..\lib\Castle.MonoRail.Framework.dll</HintPath>
     </Reference>
     <Reference Include="Castle.MonoRail.TestSupport, Version=1.0.3.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
