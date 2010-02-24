@@ -20,6 +20,9 @@ namespace AndyPike.ORMBattle.ARRepository.Models
         [BelongsTo]
         public User CreatedBy { get; set; }
 
+        [Property]
+        public bool Published { get; set; }
+
         [HasMany]
         public ICollection<Comment> Comments { get; set; }
     }
