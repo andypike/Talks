@@ -1,4 +1,4 @@
-﻿	<p>
+﻿<p>
     <label>Summary</label>
     $form.textfield("ticket.summary")
     <em>*</em>
