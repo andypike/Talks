@@ -1,0 +1,30 @@
+﻿@brand_colour: #ff0000;
+@another_colour: #0000ff;
+@site_width: 950px;
+
+body {
+	background: white;
+}
+
+.rounded_corners(@radius: 5px, @colour: #666) {
+	-moz-border-radius: @radius;
+	-webkit-border-radius: @radius;
+	border-radius: @radius;
+	border: solid 1px @colour;
+	padding: 10px;
+}
+
+h1 {
+	color: @brand_colour;
+	background: @brand_colour + #ddd;
+}
+
+h2 {
+	.rounded_corners;
+	color: @brand_colour - 50%;
+}
+
+h3 {
+	.rounded_corners(10px, #ff0000);
+	color: @brand_colour + @another_colour;
+}

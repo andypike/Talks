@@ -1,0 +1,47 @@
+<Configuration>
+  <SettingsComponent>
+    <string />
+    <integer />
+    <boolean>
+      <setting name="SolutionAnalysisEnabled">False</setting>
+    </boolean>
+  </SettingsComponent>
+  <RecentFiles>
+    <RecentFiles>
+      <File id="C0193F86-8601-4B31-A037-AB373F3D3CED/d:Controllers/f:HomeController.cs" caret="0" fromTop="0" />
+      <File id="C0193F86-8601-4B31-A037-AB373F3D3CED/d:Views/d:Home/f:Index.vm" caret="633" fromTop="15" />
+      <File id="C0193F86-8601-4B31-A037-AB373F3D3CED/d:Content/d:less/f:screen.less" caret="322" fromTop="8" />
+      <File id="C0193F86-8601-4B31-A037-AB373F3D3CED/d:Content/d:less/f:_global.less" caret="0" fromTop="0" />
+      <File id="C0193F86-8601-4B31-A037-AB373F3D3CED/d:Content/d:less/f:_layout.less" caret="0" fromTop="0" />
+      <File id="C0193F86-8601-4B31-A037-AB373F3D3CED/d:Content/d:less/f:_footer.less" caret="0" fromTop="0" />
+    </RecentFiles>
+    <RecentEdits>
+      <File id="C0193F86-8601-4B31-A037-AB373F3D3CED/d:Content/d:less/f:screen.less" caret="284" fromTop="7" />
+      <File id="C0193F86-8601-4B31-A037-AB373F3D3CED/d:Views/d:Home/f:Index.vm" caret="726" fromTop="11" />
+      <File id="C0193F86-8601-4B31-A037-AB373F3D3CED/d:Views/d:Home/f:Index.vm" caret="339" fromTop="8" />
+      <File id="C0193F86-8601-4B31-A037-AB373F3D3CED/d:Views/d:Home/f:Index.vm" caret="743" fromTop="17" />
+      <File id="C0193F86-8601-4B31-A037-AB373F3D3CED/d:Views/d:Home/f:Index.vm" caret="706" fromTop="15" />
+      <File id="C0193F86-8601-4B31-A037-AB373F3D3CED/d:Content/d:less/f:_global.less" caret="0" fromTop="11" />
+      <File id="C0193F86-8601-4B31-A037-AB373F3D3CED/d:Content/d:less/f:_global.less" caret="0" fromTop="6" />
+      <File id="C0193F86-8601-4B31-A037-AB373F3D3CED/d:Content/d:less/f:_global.less" caret="0" fromTop="10" />
+      <File id="C0193F86-8601-4B31-A037-AB373F3D3CED/d:Content/d:less/f:_global.less" caret="0" fromTop="24" />
+      <File id="C0193F86-8601-4B31-A037-AB373F3D3CED/d:Content/d:less/f:_layout.less" caret="0" fromTop="0" />
+      <File id="C0193F86-8601-4B31-A037-AB373F3D3CED/d:Content/d:less/f:_global.less" caret="0" fromTop="1" />
+      <File id="C0193F86-8601-4B31-A037-AB373F3D3CED/d:Views/d:Home/f:Index.vm" caret="580" fromTop="13" />
+      <File id="C0193F86-8601-4B31-A037-AB373F3D3CED/d:Content/d:less/f:_footer.less" caret="0" fromTop="0" />
+      <File id="C0193F86-8601-4B31-A037-AB373F3D3CED/d:Content/d:less/f:_layout.less" caret="0" fromTop="0" />
+      <File id="C0193F86-8601-4B31-A037-AB373F3D3CED/d:Content/d:less/f:_global.less" caret="0" fromTop="0" />
+    </RecentEdits>
+  </RecentFiles>
+  <NAntValidationSettings>
+    <NAntPath value="" />
+  </NAntValidationSettings>
+  <UnitTestRunner>
+    <Providers />
+  </UnitTestRunner>
+  <UnitTestRunnerNUnit>
+    <NUnitInstallDir IsNull="False">
+    </NUnitInstallDir>
+    <UseAddins>Never</UseAddins>
+  </UnitTestRunnerNUnit>
+</Configuration>
